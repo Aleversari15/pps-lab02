@@ -131,7 +131,19 @@ object Lab2 extends App:
   println(s"Test power function with base 2 and exponent 0. Expected: '1.0', Result: ${tailPower(2, 0)}")
   println()
 
+  println("Task 8")
+  println("Reverse the digits of an integer using recursion")
+  println()
+  //reverseNumber(12345) --> 54321
+  def reverseNumber(n: Int): Int =
+    @annotation.tailrec
+    def loop(remainingPart: Int, currentReversedNumber: Int): Int = remainingPart match
+      case 0 => currentReversedNumber
+      case _ => loop(remainingPart/10,(currentReversedNumber*10) +(remainingPart % 10))
+    loop(n,0)
 
+  println(s"Test reverseNumber with input 12345. Expected: '54321', Result: ${reverseNumber(12345)}")
+  println()
 /*println("Task 8")
 println("Task 9")*/
 
