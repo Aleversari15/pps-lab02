@@ -1,8 +1,8 @@
 package u02
 
-import ExprModule._
 import org.junit.*
 import org.junit.Assert.*
+import Lab2.*
 
 class ExprTest:
 
