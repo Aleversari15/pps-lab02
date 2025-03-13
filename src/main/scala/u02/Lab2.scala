@@ -144,9 +144,6 @@ object Lab2 extends App:
 
   println(s"Test reverseNumber with input 12345. Expected: '54321', Result: ${reverseNumber(12345)}")
   println()
-/*println("Task 8")
-println("Task 9")*/
-
 
 
 
