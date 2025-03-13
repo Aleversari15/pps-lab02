@@ -105,8 +105,34 @@ object Lab2 extends App:
   println(s"Test composeThree function passing 10 as input. Expected: '16', Result: ${composedThree(10)}")
   println()
 
-/*println("Task 7")
-println("Task 8")
+  println("Task 7")
+  println("Power of a number using recursion")
+  println()
+
+  def power(base: Double, exponent: Int): Double = exponent match
+    case 0 => 1.0
+    case _ => base * power(base, exponent - 1)
+
+  println(s"Test power function with base 2 and exponent 3. Expected: '8.0', Result: ${power(2, 3)}")
+  println(s"Test power function with base 2 and exponent 0. Expected: '1.0', Result: ${power(2, 0)}")
+
+  println()
+  println("Power of a number using tail recursion")
+  println()
+
+  def tailPower(base: Double, exponent: Int): Double =
+    @annotation.tailrec
+    def loop(exp: Int, acc: Double): Double = exp match
+      case 0 => acc
+      case _ => loop(exp - 1, acc * base)
+    loop(exponent, 1.0)
+
+  println(s"Test power function with base 2 and exponent 3. Expected: '8.0', Result: ${tailPower(2, 3)}")
+  println(s"Test power function with base 2 and exponent 0. Expected: '1.0', Result: ${tailPower(2, 0)}")
+  println()
+
+
+/*println("Task 8")
 println("Task 9")*/
 
 
