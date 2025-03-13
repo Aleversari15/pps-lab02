@@ -56,6 +56,9 @@ object Lab2 extends App:
   println()
 
   println("Task 4")
+  println("Currying")
+  println()
+
   val p1: Int => Int => Int => Boolean = x => y => z => x<=y && y==z
   val p2: (Int, Int, Int) => Boolean = (x,y,z) => x<=y && y==z
   def p3(x: Int)(y: Int)(z: Int): Boolean = x <= y && y == z
@@ -72,10 +75,24 @@ object Lab2 extends App:
 
   println(s"Test p4 function passing (1, 2, 2) as input. Expected: true, Result: ${p4(1, 2, 2)}")
   println(s"Test p4 function passing (3, 2, 2) as input. Expected: false, Result: ${p4(3, 2, 2)}")
+  println()
 
+  println("Task 5")
+  println("Functional compositions")
+  println()
+  //def compose(f: Int => Int, g: Int => Int): Int => Int
+  //f(g(x))
+  def composeGeneric[A,B,C](f: B => C, g: A => B): A => C = (x: A) => f(g(x))
 
-/*println("Task 5")
-println("Task 6")
+  val f: Int => Int = (x: Int) => x * 2
+  val g: String => Int = _.length
+  val composed = composeGeneric(f, g)
+
+  println(s"Test composeGeneric function passing 'foo' as input. Expected: '6', Result: ${composed("foo")}")
+  println(s"Test composeGeneric function passing '' as input. Expected: '0', Result: ${composed("")}")
+  println(s"Test composeGeneric function passing 'hello' as input. Expected: '10', Result: ${composed("hello")}")
+
+/*println("Task 6")
 println("Task 7")
 println("Task 8")
 println("Task 9")*/
