@@ -78,22 +78,34 @@ object Lab2 extends App:
   println()
 
   println("Task 5")
-  println("Functional compositions")
+  println("Functional compositions - 2 functions")
   println()
   //def compose(f: Int => Int, g: Int => Int): Int => Int
   //f(g(x))
   def composeGeneric[A,B,C](f: B => C, g: A => B): A => C = (x: A) => f(g(x))
 
-  val f: Int => Int = (x: Int) => x * 2
+  val f: Int => Int = _ * 2
   val g: String => Int = _.length
   val composed = composeGeneric(f, g)
 
   println(s"Test composeGeneric function passing 'foo' as input. Expected: '6', Result: ${composed("foo")}")
   println(s"Test composeGeneric function passing '' as input. Expected: '0', Result: ${composed("")}")
   println(s"Test composeGeneric function passing 'hello' as input. Expected: '10', Result: ${composed("hello")}")
+  println()
 
-/*println("Task 6")
-println("Task 7")
+  println("Task 6")
+  println("Functional compositions - 3 functions")
+  println()
+  def composeThree[A, B, C, D](f: C => D, g: B => C, h: A => B): A => D = composeGeneric(f, composeGeneric(g, h))
+
+  val h: Int => String = _ + "string"
+  val composedThree = composeThree(f, g, h)
+
+  println(s"Test composeThree function passing 3 as input. Expected: '14', Result: ${composedThree(3)}") //(3string).lenght = 7 * 2 =14
+  println(s"Test composeThree function passing 10 as input. Expected: '16', Result: ${composedThree(10)}")
+  println()
+
+/*println("Task 7")
 println("Task 8")
 println("Task 9")*/
 
